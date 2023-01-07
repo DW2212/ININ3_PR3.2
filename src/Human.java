@@ -3,12 +3,20 @@ import devices.Car;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Human {
+public class Human extends Animal{
+    String firstName;
+    String lastName;
+    Car car;
     Animal pet;
     private Double salary;
     private Car auto;
 
-
+public Human(String firstName){
+    super("homo sapiens");
+    this.weight=70.0;
+    this.salary=0.0;
+    this.firstName=firstName;
+}
     public Double getSalary() {
 
         LocalDateTime dateTime = LocalDateTime.now();

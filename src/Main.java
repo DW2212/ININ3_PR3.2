@@ -10,7 +10,10 @@ public class Main {
         System.out.println(passat.model);
         System.out.println(passat.yearOfProduction);
 
-        Human andrzej = new Human();
+        Human andrzej = new Human("Andrzej");
+        andrzej.feed();
+        System.out.println(andrzej.weight);
+        System.out.println(andrzej.species);
         andrzej.setSalary(2000.0);
         System.out.println(andrzej.getSalary());
         andrzej.setCar(passat);
@@ -51,7 +54,15 @@ public class Main {
         System.out.println(passat);
         System.out.println(kot);
         System.out.println(xiaomi);
-///
+
+        Human kacper = new Human("Kacper");
+        kacper.feed();
+        System.out.println(kacper.weight);
+        System.out.println(kacper.species);
+
+        ford2.color="czarny";
+        System.out.println("Kolor ford2="+ford2.color);
+
         //System.out.println("Wynik 65659 % 3 = " + 65659 % 3);
     }
 }

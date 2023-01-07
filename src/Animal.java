@@ -1,7 +1,7 @@
 public class Animal {
     String species;
     String name;
-    private Double weight;
+    Double weight;
     Boolean alive;
 
     public Animal(String species) {

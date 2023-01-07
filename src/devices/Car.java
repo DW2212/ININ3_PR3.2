@@ -1,11 +1,10 @@
 package devices;
 
-public class Car {
-    public String producer;
-    public String model;
-    public Integer yearOfProduction;
+public class Car extends Device{
+
     public Double millage;
     public Double value;
+    public String color;
 
     public Car(String producer, String model, Integer yearOfProduction) {
         this.producer = producer;
@@ -20,6 +19,6 @@ public class Car {
     }
 
     public String toString() {
-        return producer + " " + model + " " + yearOfProduction + " " + millage + " " + value;
+        return producer + " " + model + " " + yearOfProduction + " " + millage + " " + value + " " + color;
     }
 }
