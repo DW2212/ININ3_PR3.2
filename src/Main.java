@@ -51,7 +51,7 @@ public class Main {
         System.out.println(passat);
         System.out.println(kot);
         System.out.println(xiaomi);
-
+///
         //System.out.println("Wynik 65659 % 3 = " + 65659 % 3);
     }
 }
