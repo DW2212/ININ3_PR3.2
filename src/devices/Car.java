@@ -6,11 +6,11 @@ public class Car extends Device{
     public Double value;
     public String color;
 
+
+
     public Car(String producer, String model, Integer yearOfProduction) {
-        this.producer = producer;
-        this.model = model;
-        this.yearOfProduction = yearOfProduction;
-        this.millage = 0.0;
+        super(producer, model, yearOfProduction);
+        this.millage = millage;
     }
 
     public void drive() {
@@ -20,5 +20,11 @@ public class Car extends Device{
 
     public String toString() {
         return producer + " " + model + " " + yearOfProduction + " " + millage + " " + value + " " + color;
+    }
+
+    @Override
+    public void turnOn() {
+        System.out.println("przekrecam klucz");
+        System.out.println("odpala");
     }
 }

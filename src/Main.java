@@ -46,7 +46,7 @@ public class Main {
         System.out.println(kot);
         System.out.println(ford);
         System.out.println(ford2);
-        Phone xiaomi = new Phone("Xiaomi", "13 Pro", 6.0, "Android 12");
+        Phone xiaomi = new Phone("Xiaomi", "13 Pro",2018);
         andrzej.pet = kot;
 
         System.out.println();
@@ -62,6 +62,9 @@ public class Main {
 
         ford2.color="czarny";
         System.out.println("Kolor ford2="+ford2.color);
+
+        ford.turnOn();
+        xiaomi.turnOn();
 
         //System.out.println("Wynik 65659 % 3 = " + 65659 % 3);
     }

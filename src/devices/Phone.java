@@ -1,18 +1,16 @@
 package devices;
 
 public class Phone extends Device{
-    Double screenSize;
+    public Double screenSize;
     public String os;
 
     public String toString() {
         return producer + " " + model + " " + screenSize + " " + os;
     }
 
-    public Phone(String producer, String model, Double screenSize, String os) {
-        this.producer = producer;
-        this.model = model;
-        this.screenSize = screenSize;
-        this.os = os;
+    public Phone(String producer, String model, Integer yearOfProduction) {
+        super(producer, model, yearOfProduction);
+
     }
 
     public void turnOn() {
@@ -26,4 +24,5 @@ public class Phone extends Device{
     public void installAnApp(String app) {
         System.out.println("App: " + app + ", succesfully installed!");
     }
+
 }
