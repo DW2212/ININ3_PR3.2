@@ -2,7 +2,7 @@ package dawid_w.creatures;
 
 import dawid_w.Saleable;
 
-public class Animal implements Saleable {
+public abstract class Animal implements Saleable, Feedable {
     public String species;
     public String name;
     public Double weight;
@@ -18,6 +18,14 @@ public class Animal implements Saleable {
         if (!this.alive) System.out.println("\nOh, nooooo, its dead!");
         else {
             this.weight += 0.5;
+            System.out.println("\npodziekowal za jedzenie");
+        }
+    }
+
+    public void feed(Double foodWeight) {
+        if (!this.alive) System.out.println("\nOh, nooooo, its dead!");
+        else {
+            this.weight += foodWeight;
             System.out.println("\npodziekowal za jedzenie");
         }
     }

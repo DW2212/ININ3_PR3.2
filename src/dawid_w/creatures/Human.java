@@ -13,6 +13,7 @@ public class Human extends Animal implements Saleable {
     public Car car;
     public Phone phone;
     public Animal pet;
+    public FarmAnimal farmPet;
     private Double salary;
     private Car auto;
     public Double cash;

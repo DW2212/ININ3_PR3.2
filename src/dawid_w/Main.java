@@ -1,7 +1,8 @@
 package dawid_w;
 
-import dawid_w.creatures.Animal;
+import dawid_w.creatures.FarmAnimal;
 import dawid_w.creatures.Human;
+import dawid_w.creatures.Pet;
 import dawid_w.devices.Car;
 import dawid_w.devices.Phone;
 
@@ -29,7 +30,7 @@ public class Main {
         System.out.println("Model auta: " + fiat.model);
         System.out.println("Przebieg: " + fiat.millage);
 
-        Animal kot = new Animal("kot");
+        Pet kot = new Pet("kot");
         kot.name = "Filemon";
         kot.feed();
         kot.takeForAWalk();
@@ -83,6 +84,16 @@ public class Main {
         xiaomi.sell(me, brother, 200.0);
         kacper.sell(me, brother, 3.50);
 
+        System.out.println();
+        FarmAnimal kurczak = new FarmAnimal("ptak");
+        me.farmPet = kurczak;
+        kurczak.beEaten();
+
+        System.out.println();
+        Pet pies = new Pet("ssak");
+        pies.feed();
+        pies.feed(5.0);
+        System.out.println(pies);
         //System.out.println("Wynik 65659 % 3 = " + 65659 % 3);
     }
 }
