@@ -1,11 +1,12 @@
 package dawid_w.creatures;
 
-public class Animal {
+import dawid_w.Saleable;
+
+public class Animal implements Saleable {
     public String species;
     public String name;
     public Double weight;
     public Boolean alive;
-
 
     public Animal(String species) {
         this.species = species;
@@ -29,7 +30,28 @@ public class Animal {
         }
     }
 
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        if (buyer.cash < price) {
+            System.out.println("Masz za mało pieniędzy.");
+        } else if (seller.pet != this) {
+            System.out.println("Sprzedający nie żadnego zwierzęcia na sprzedaż");
+        } else {
+            seller.cash += price;
+            buyer.cash -= price;
+            buyer.pet = seller.pet;
+            seller.pet = null;
+            System.out.println("Transakcja udana");
+        }
+    }
+
+    @Override
     public String toString() {
-        return species + " " + name + " " + weight + " " + alive;
+        return "Animal{" +
+                "species='" + species + '\'' +
+                ", name='" + name + '\'' +
+                ", weight=" + weight +
+                ", alive=" + alive +
+                '}';
     }
 }

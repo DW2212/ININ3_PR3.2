@@ -13,6 +13,7 @@ public class Main {
         System.out.println(passat.producer);
         System.out.println(passat.model);
         System.out.println(passat.yearOfProduction);
+        passat.drive();
 
         Human andrzej = new Human("Andrzej");
         andrzej.feed();
@@ -42,7 +43,6 @@ public class Main {
         kot.feed();
         kot.takeForAWalk();
 
-
         System.out.println(passat.equals(fiat));
         Car ford = new Car("ford", "mondeo", 2015);
         Car ford2 = new Car("ford", "mondeo", 2015);
@@ -52,6 +52,7 @@ public class Main {
         System.out.println(ford2);
         Phone xiaomi = new Phone("Xiaomi", "13 Pro", 2018);
         xiaomi.mute();
+        xiaomi.installAnApp("TrashXXL");
         andrzej.pet = kot;
 
         System.out.println();
@@ -70,18 +71,17 @@ public class Main {
 
         ford.turnOn();
         xiaomi.turnOn();
+        System.out.println();
 
         Human me = new Human("Kacper");
         Human brother = new Human("Piotr");
         me.car = passat;
-        brother.cash = 999.0;
+        brother.cash = 9999.0;
         passat.sell(me, brother, 3000.0);
 
-        //efekt jaki chcemy uzyskac:
-        //me.car=null;
-        //brother.car=passat;
-        //me.cash=3000.0;
-        //brother.cash=6999.0;
+        me.phone = xiaomi;
+        xiaomi.sell(me, brother, 200.0);
+        kacper.sell(me, brother, 3.50);
 
         //System.out.println("Wynik 65659 % 3 = " + 65659 % 3);
     }

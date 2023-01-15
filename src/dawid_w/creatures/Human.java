@@ -1,17 +1,17 @@
 package dawid_w.creatures;
 
-import dawid_w.creatures.Animal;
+import dawid_w.Saleable;
 import dawid_w.devices.Car;
 import dawid_w.devices.Phone;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Human extends Animal {
+public class Human extends Animal implements Saleable {
     public String firstName;
     public String lastName;
     public Car car;
-    Phone phone;
+    public Phone phone;
     public Animal pet;
     private Double salary;
     private Car auto;
@@ -22,10 +22,10 @@ public class Human extends Animal {
         this.weight = 70.0;
         this.salary = 0.0;
         this.firstName = firstName;
+        this.cash = 0.0;
     }
 
     public Double getSalary() {
-
         LocalDateTime dateTime = LocalDateTime.now();
         System.out.println("\nData/godz pobrania danych: " + dateTime.format(DateTimeFormatter.ofPattern("d.M.y HH:mm:ss")));
         System.out.print("Aktualna wartość wypłaty: ");
@@ -57,7 +57,22 @@ public class Human extends Animal {
         }
     }
 
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        System.out.println("Handel ludźmi jest niemożliwy");
+    }
+
+    @Override
     public String toString() {
-        return pet + " " + salary + " " + auto;
+        return "Human{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", car=" + car +
+                ", phone=" + phone +
+                ", pet=" + pet +
+                ", salary=" + salary +
+                ", auto=" + auto +
+                ", cash=" + cash +
+                '}';
     }
 }

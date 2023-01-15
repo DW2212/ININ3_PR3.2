@@ -11,9 +11,14 @@ public abstract class Device {
         this.yearOfProduction = yearOfProduction;
     }
 
-    public String toString() {
-        return producer + " " + model + " " + yearOfProduction;
-    }
-
     public abstract void turnOn();
+
+    @Override
+    public String toString() {
+        return "Device{" +
+                "producer='" + producer + '\'' +
+                ", model='" + model + '\'' +
+                ", yearOfProduction=" + yearOfProduction +
+                '}';
+    }
 }

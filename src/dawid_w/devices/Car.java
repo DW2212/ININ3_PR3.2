@@ -9,7 +9,6 @@ public class Car extends Device implements Saleable {
     public Double value;
     public String color;
 
-
     public Car(String producer, String model, Integer yearOfProduction) {
         super(producer, model, yearOfProduction);
         this.millage = 0.0;
@@ -21,11 +20,6 @@ public class Car extends Device implements Saleable {
     }
 
     @Override
-    public String toString() {
-        return producer + " " + model + " " + yearOfProduction + " " + millage + " " + value + " " + color;
-    }
-
-    @Override
     public void turnOn() {
         System.out.println("przekrecam klucz");
         System.out.println("odpala");
@@ -34,20 +28,24 @@ public class Car extends Device implements Saleable {
     @Override
     public void sell(Human seller, Human buyer, Double price) {
         if (buyer.cash < price) {
-            //wywal blad
+            System.out.println("Masz za mało pieniędzy.");
         } else if (seller.car != this) {
-            //wywal blad
+            System.out.println("Sprzedający nie ma auta na sprzedaż");
         } else {
-            //przeprowadz transakcje
             seller.cash += price;
             buyer.cash -= price;
+            buyer.car = seller.car;
+            seller.car = null;
+            System.out.println("Transakcja udana");
         }
-        /*sprawdzenie, czy sprzedający rzeczywiście posiada zwierze, samochód lub telefon, który chciałby sprzedać
-        sprawdzenie, czy kupujący ma dość gotówki
-        ubytek pieniądza na koncie kupującego
-        przybytek pieniądza na koncie sprzedającego
-        zmianę właściciela sprzedawanego obiektu
-        wypisanie na konsole informacji o przeprowadzonej transakcji*/
-        //if(bu)
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "millage=" + millage +
+                ", value=" + value +
+                ", color='" + color + '\'' +
+                '}';
     }
 }
