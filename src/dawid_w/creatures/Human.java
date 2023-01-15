@@ -1,22 +1,29 @@
-import devices.Car;
+package dawid_w.creatures;
+
+import dawid_w.creatures.Animal;
+import dawid_w.devices.Car;
+import dawid_w.devices.Phone;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Human extends Animal{
-    String firstName;
-    String lastName;
-    Car car;
-    Animal pet;
+public class Human extends Animal {
+    public String firstName;
+    public String lastName;
+    public Car car;
+    Phone phone;
+    public Animal pet;
     private Double salary;
     private Car auto;
+    public Double cash;
 
-public Human(String firstName){
-    super("homo sapiens");
-    this.weight=70.0;
-    this.salary=0.0;
-    this.firstName=firstName;
-}
+    public Human(String firstName) {
+        super("homo sapiens");
+        this.weight = 70.0;
+        this.salary = 0.0;
+        this.firstName = firstName;
+    }
+
     public Double getSalary() {
 
         LocalDateTime dateTime = LocalDateTime.now();

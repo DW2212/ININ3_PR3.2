@@ -1,8 +1,11 @@
+package dawid_w.creatures;
+
 public class Animal {
-    String species;
-    String name;
-    Double weight;
-    Boolean alive;
+    public String species;
+    public String name;
+    public Double weight;
+    public Boolean alive;
+
 
     public Animal(String species) {
         this.species = species;

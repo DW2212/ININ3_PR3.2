@@ -1,9 +1,12 @@
-package devices;
+package dawid_w.devices;
 
-public class Phone extends Device{
+import dawid_w.devices.Device;
+
+public class Phone extends Device {
     public Double screenSize;
     public String os;
 
+    @Override
     public String toString() {
         return producer + " " + model + " " + screenSize + " " + os;
     }
@@ -13,6 +16,7 @@ public class Phone extends Device{
 
     }
 
+    @Override
     public void turnOn() {
         System.out.println("Turning on phone...1%...30%...80%...99%...Phone ready!");
     }

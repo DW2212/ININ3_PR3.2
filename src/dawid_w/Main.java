@@ -1,5 +1,9 @@
-import devices.Car;
-import devices.Phone;
+package dawid_w;
+
+import dawid_w.creatures.Animal;
+import dawid_w.creatures.Human;
+import dawid_w.devices.Car;
+import dawid_w.devices.Phone;
 
 public class Main {
     public static void main(String[] args) {
@@ -46,7 +50,8 @@ public class Main {
         System.out.println(kot);
         System.out.println(ford);
         System.out.println(ford2);
-        Phone xiaomi = new Phone("Xiaomi", "13 Pro",2018);
+        Phone xiaomi = new Phone("Xiaomi", "13 Pro", 2018);
+        xiaomi.mute();
         andrzej.pet = kot;
 
         System.out.println();
@@ -60,11 +65,23 @@ public class Main {
         System.out.println(kacper.weight);
         System.out.println(kacper.species);
 
-        ford2.color="czarny";
-        System.out.println("Kolor ford2="+ford2.color);
+        ford2.color = "czarny";
+        System.out.println("Kolor ford2=" + ford2.color);
 
         ford.turnOn();
         xiaomi.turnOn();
+
+        Human me = new Human("Kacper");
+        Human brother = new Human("Piotr");
+        me.car = passat;
+        brother.cash = 999.0;
+        passat.sell(me, brother, 3000.0);
+
+        //efekt jaki chcemy uzyskac:
+        //me.car=null;
+        //brother.car=passat;
+        //me.cash=3000.0;
+        //brother.cash=6999.0;
 
         //System.out.println("Wynik 65659 % 3 = " + 65659 % 3);
     }
