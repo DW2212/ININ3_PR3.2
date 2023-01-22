@@ -6,6 +6,8 @@ import dawid_w.creatures.Pet;
 import dawid_w.devices.Car;
 import dawid_w.devices.Phone;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
         Car passat = new Car("vw", "passat", 2001);
@@ -94,6 +96,45 @@ public class Main {
         pies.feed();
         pies.feed(5.0);
         System.out.println(pies);
+
+        xiaomi.installAnApp("Kalkulator");
+        xiaomi.installAnApp("Kalkulator",1.1);
+        xiaomi.installAnApp("Kalkulator",1.2,"wp.pl");
+
+        ArrayList<String> apps = new ArrayList<>();
+        apps.add("notatnik");
+        apps.add("kamera");
+        xiaomi.installAnApp(apps);
+
+        int []tab=new int[10];
+        for(int i=101;i<111;i++){
+            tab[i-101]=i;
+            System.out.println("tab["+(i-101)+"]="+tab[i-101]);
+        }
+
+        int licznik=0;
+        for(int i=10;i<110;i=i+10){
+            tab[licznik]=i;
+            System.out.println("tab["+(licznik)+"]="+tab[licznik]);
+            licznik++;
+        }
+
+        boolean []tab2=new boolean[20];
+        for(int i=0;i<tab2.length;i++){
+            if(i%2==0) tab2[i]=true;
+            else tab2[i]=false;
+            System.out.println("tab2["+(i)+"]="+tab2[i]);
+        }
+
+        int []tab3=new int[100];
+        licznik=0;
+        for(int i=0;i< 100;i++){
+            tab3[i]=licznik++;
+            if(licznik==10)licznik=0;
+        }
+        for(int i=0;i< 100;i++){
+            System.out.println("tab3["+(i)+"]="+tab3[i]);
+        }
         //System.out.println("Wynik 65659 % 3 = " + 65659 % 3);
     }
 }

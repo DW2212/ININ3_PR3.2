@@ -3,6 +3,7 @@ package dawid_w.creatures;
 import dawid_w.Saleable;
 
 public abstract class Animal implements Saleable, Feedable {
+    public final static Double DEFAULT_FOOD_WEIGHT=0.5;
     public String species;
     public String name;
     public Double weight;
@@ -15,11 +16,7 @@ public abstract class Animal implements Saleable, Feedable {
     }
 
     public void feed() {
-        if (!this.alive) System.out.println("\nOh, nooooo, its dead!");
-        else {
-            this.weight += 0.5;
-            System.out.println("\npodziekowal za jedzenie");
-        }
+        this.feed(DEFAULT_FOOD_WEIGHT);
     }
 
     public void feed(Double foodWeight) {
