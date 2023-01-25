@@ -3,12 +3,15 @@ package dawid_w.devices;
 import dawid_w.Saleable;
 import dawid_w.creatures.Human;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 public class Phone extends Device implements Saleable {
-    public final static String DEFAULT_SERVER_ADDRESS="www.google.pl";
-    public final static String DEFAULT_PROTOCOLE="http://";
-    public final static Double DEFAULT_APP_VERSION=1.0;
+    private static final String DEFAULT_APP_SERVER_ADDRESS = "www.google.pl";
+    private static final String DEFAULT_APP_PROTOCOL = "https";
+    private static final Double DEFAULT_APP_VERSION = 1.0;
+    private static final int DEFAULT_APP_PORT = 8089;
     public Double screenSize;
     public String os;
 
@@ -25,37 +28,33 @@ public class Phone extends Device implements Saleable {
         System.out.println("Phone muted!");
     }
 
-    public void installAnApp(String app) {
-/*
-        System.out.println("App: " + app + ", succesfully installed!");
-*/
-        this.installAnApp(app,DEFAULT_APP_VERSION,DEFAULT_SERVER_ADDRESS);
+    public void installAnApp(String app) throws MalformedURLException {
+        this.installAnApp(app, DEFAULT_APP_VERSION);
     }
 
-    public void installAnApp(String app, Double version) {
-        /*System.out.println("App: " + app + ", version: " + version + ", succesfully installed!");*/
-        this.installAnApp(app,version,DEFAULT_SERVER_ADDRESS);
+    public void installAnApp(String app, Double version) throws MalformedURLException {
+        this.installAnApp(app, version, DEFAULT_APP_SERVER_ADDRESS);
     }
 
-    public void installAnApp(String app, Double version, String url) {
+    public void installAnApp(String app, Double version, String server) throws MalformedURLException {
         System.out.println("Sprawdzam");
         System.out.println("Pobieram");
         System.out.println("Instaluje");
-        System.out.println("App: " + app + ", version: " + version + ", URL: " + url + ", succesfully installed!");
+        URL url = new URL(DEFAULT_APP_PROTOCOL, server, DEFAULT_APP_PORT, app + "-" + version);
+        //System.out.println("App: " + app + ", version: " + version + ", URL: " + server + ", succesfully installed!");
+        this.installAnApp(url);
     }
 
-    public void installAnApp(List<String> apps) {
-        //System.out.println(apps);
-        /*System.out.println("App list: ");
-        for (String app : applist)
-            System.out.print(app + ", ");*/
-        for(String app:apps){
+    public void installAnApp(List<String> apps) throws MalformedURLException {
+        for (String app : apps) {
             this.installAnApp(app);
         }
     }
-/*    public void installAnApp(URL app(app,version,url)) {
-        System.out.println(app);
-    }*/
+
+    public void installAnApp(URL url) {
+        System.out.println("instalowanie aplikacji z url");
+        System.out.println("zainstalowano " + url.getFile() + " z " + url.getHost());
+    }
 
     @Override
     public void sell(Human seller, Human buyer, Double price) {

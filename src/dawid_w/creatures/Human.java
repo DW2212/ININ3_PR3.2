@@ -6,24 +6,35 @@ import dawid_w.devices.Phone;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 
 public class Human extends Animal implements Saleable {
+    private static final int DEFAULT_VEHICLE_NUMBER = 3;
+    private static final Double DEFAULT_HUMAN_WEIGHT = 70.0;
+    private static final Double DEFAULT_HUMAN_SALARY = 0.0;
+    private static final String HUMAN_SPECIES = "homo sapiens";
+    private static final Double DEFAULT_HUMAN_CASH = 0.0;
     public String firstName;
     public String lastName;
-    public Car car;
+    public Car[] garage;
     public Phone phone;
     public Animal pet;
     public FarmAnimal farmPet;
     private Double salary;
-    private Car auto;
+    //private Car auto;
     public Double cash;
 
     public Human(String firstName) {
-        super("homo sapiens");
-        this.weight = 70.0;
-        this.salary = 0.0;
+        this(firstName, DEFAULT_VEHICLE_NUMBER);
+    }
+
+    public Human(String firstName, Integer vehicleNumber) {
+        super(HUMAN_SPECIES);
+        this.weight = DEFAULT_HUMAN_WEIGHT;
+        this.salary = DEFAULT_HUMAN_SALARY;
         this.firstName = firstName;
-        this.cash = 0.0;
+        this.cash = DEFAULT_HUMAN_CASH;
+        this.garage = new Car[vehicleNumber];
     }
 
     public Double getSalary() {
@@ -42,20 +53,38 @@ public class Human extends Animal implements Saleable {
         } else System.out.println("\nWyplata nie może być ujemna!(Tak nigdy nic nie zarobisz...)");
     }
 
-    public Car getCar() {
-        return this.auto;
+    public void setCar(Car newCar, Integer parkingLotNumber) {
+        if (parkingLotNumber >= this.garage.length) {
+            System.out.println("Niestety, nie mamy tyle miejsc parkingowych");
+        } else if (parkingLotNumber < 0) {
+            System.out.println("Nie ma takiego miejsca");
+        } else if (this.garage[parkingLotNumber] != null) {
+            System.out.println("To miejsce jest juz zajęte");
+        } else {
+            this.garage[parkingLotNumber] = newCar;
+        }
     }
 
-    public void setCar(Car auto) {
-        if (this.salary > auto.value) {
-            System.out.println("\nUdało się kupić auto za gotówkę.");
-            this.auto = auto;
-        } else if (this.salary > (auto.value / 12.0)) {
-            System.out.println("\nUdało się kupić auto na kredyt.");
-            this.auto = auto;
+    public void getCar(Integer parkingLotNumber) {
+        if (parkingLotNumber >= this.garage.length) {
+            System.out.println("Niestety, nie mamy tyle miejsc parkingowych");
+        } else if (parkingLotNumber < 0) {
+            System.out.println("Nie ma takiego miejsca");
+        } else if (this.garage[parkingLotNumber] == null) {
+            System.out.println("To miejsce jest puste");
         } else {
-            System.out.println("\nZapisz się na studia i znajdź nową robotę albo idź po podwyżkę.");
+            System.out.println("Zawartosc tego miejsca parkingowego - " + this.garage[parkingLotNumber]);
         }
+    }
+
+    public Double getValueOfAllCars() {
+        Double valueOfCars = 0.0;
+        for (Car car : this.garage) {
+            if (car != null) {
+                valueOfCars += car.value;
+            }
+        }
+        return valueOfCars;
     }
 
     @Override
@@ -68,12 +97,65 @@ public class Human extends Animal implements Saleable {
         return "Human{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", car=" + car +
+                ", garage=" + Arrays.toString(garage) +
                 ", phone=" + phone +
                 ", pet=" + pet +
+                ", farmPet=" + farmPet +
                 ", salary=" + salary +
-                ", auto=" + auto +
+                //", auto=" + auto +
                 ", cash=" + cash +
                 '}';
+    }
+
+    public boolean hasACar(Car car) {
+        boolean hasCar = false;
+        for (Car value : this.garage) {
+            if (value == car) {
+                hasCar = true;
+                break;
+            }
+        }
+        return hasCar;
+    }
+
+    public boolean canHaveMoreCars() {
+        boolean hasEmptySpace = false;
+        for (Car car : this.garage) {
+            if (car == null) {
+                hasEmptySpace = true;
+                break;
+            }
+        }
+        return hasEmptySpace;
+    }
+
+    public boolean hasLessCashThen(Double price) {
+        return this.cash >= price;
+    }
+
+    public void addCar(Car car) {
+        for (int i = 0; i < this.garage.length; i++) {
+            if (this.garage[i] == null) {
+                this.setCar(car, i);
+                break;
+            }
+        }
+    }
+
+    public void removeCar(Car car) {
+        for (int i = 0; i < this.garage.length; i++) {
+            if (this.garage[i] == car) {
+                this.garage[i] = null;
+                break;
+            }
+        }
+    }
+
+    public void removeMoney(Double price) {
+        this.cash -= price;
+    }
+
+    public void addMoney(Double price) {
+        this.cash += price;
     }
 }
