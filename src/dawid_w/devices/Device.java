@@ -1,6 +1,7 @@
 package dawid_w.devices;
 
 public abstract class Device {
+    private static final Double DEFAULT_DEVICE_VALUE = 0.0;
     public final String producer;
     public final String model;
     public final Integer yearOfProduction;
@@ -10,7 +11,7 @@ public abstract class Device {
         this.producer = producer;
         this.model = model;
         this.yearOfProduction = yearOfProduction;
-        this.value = 0.0;
+        this.value = DEFAULT_DEVICE_VALUE;
     }
 
     public abstract void turnOn();

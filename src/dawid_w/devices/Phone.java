@@ -41,7 +41,6 @@ public class Phone extends Device implements Saleable {
         System.out.println("Pobieram");
         System.out.println("Instaluje");
         URL url = new URL(DEFAULT_APP_PROTOCOL, server, DEFAULT_APP_PORT, app + "-" + version);
-        //System.out.println("App: " + app + ", version: " + version + ", URL: " + server + ", succesfully installed!");
         this.installAnApp(url);
     }
 
