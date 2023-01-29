@@ -9,12 +9,11 @@ public abstract class Car extends Device implements Saleable {
 
     public Double millage;
     public String color;
-    public ArrayList<Human> carOwners;
+    public ArrayList<Human> carOwners = new ArrayList<>();
 
     public Car(String producer, String model, Integer yearOfProduction) {
         super(producer, model, yearOfProduction);
         this.millage = 0.0;
-        carOwners = new ArrayList<>();
     }
 
     public void drive() {
@@ -58,8 +57,8 @@ public abstract class Car extends Device implements Saleable {
                 System.out.println(people);
         }
     }*/
-    public boolean hadOwner() {
-        return !carOwners.isEmpty();
+    public boolean wasOwner(Human person) {
+        return carOwners.contains(person);
     }
 
     public boolean hasSellCarTo(Human A, Human B) {

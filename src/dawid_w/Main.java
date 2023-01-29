@@ -194,8 +194,8 @@ public class Main {
         adam.getCar(0);
         System.out.println("**");
         LPG golf = new LPG("VW", "golf", 2002);
-        System.out.println("golf ma wlasciciela=" + golf.hadOwner());
-        System.out.println("Mustang ma wlasciciela=" + mustang.hadOwner());
+        System.out.println("adam byl wlascicielem tesli=" + tesla.wasOwner(adam));
+        System.out.println("adam byl wlascicielem golfa=" + golf.wasOwner(adam));
         System.out.println("Czlowiek A sprzedal tesle czlowiekowi B=" + tesla.hasSellCarTo(one, two));
         System.out.println("Czlowiek A sprzedal mustanga czlowiekowi B=" + mustang.hasSellCarTo(one, two));
         System.out.println("Tesla ilosc transakcji sprzedazy=" + tesla.numberOfCarTransaction());
