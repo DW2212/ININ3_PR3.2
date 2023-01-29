@@ -158,11 +158,13 @@ public class Main {
         System.out.println(one.getValueOfAllCars() + " zł");
 
         Human two = new Human("Tom");
+        two.cash = 200000.0;
+        //mustang.carOwners.add(one);
         try {
             mustang.sell(one, two, 85000.0);
             System.out.println("Transakcja sie udala");
         } catch (Exception e) {
-            System.out.println("Sprzedaz sie nie powiodla");
+            System.out.println(e + ",Sprzedaz sie nie powiodla");
         }
         System.out.println();
 
@@ -190,6 +192,15 @@ public class Main {
         adam.getCar(1);
         System.out.println("adam.getCar(0):");
         adam.getCar(0);
+        System.out.println("**");
+        LPG golf = new LPG("VW", "golf", 2002);
+        System.out.println("golf ma wlasciciela=" + golf.hadOwner());
+        System.out.println("Mustang ma wlasciciela=" + mustang.hadOwner());
+        System.out.println("Czlowiek A sprzedal tesle czlowiekowi B=" + tesla.hasSellCarTo(one, two));
+        System.out.println("Czlowiek A sprzedal mustanga czlowiekowi B=" + mustang.hasSellCarTo(one, two));
+        System.out.println("Tesla ilosc transakcji sprzedazy=" + tesla.numberOfCarTransaction());
+        System.out.println("Mustang ilosc transakcji sprzedazy=" + mustang.numberOfCarTransaction());
+        System.out.println("golf ilosc transakcji sprzedazy=" + golf.numberOfCarTransaction());
         //System.out.println("Wynik 65659 % 3 = " + 65659 % 3);
     }
 }

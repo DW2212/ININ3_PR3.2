@@ -61,6 +61,7 @@ public class Human extends Animal implements Saleable {
             System.out.println("To miejsce jest juz zajęte");
         } else {
             this.garage[parkingLotNumber] = newCar;
+            this.garage[parkingLotNumber].carOwners.add(this);
         }
     }
 
@@ -160,5 +161,9 @@ public class Human extends Animal implements Saleable {
 
     public void addMoney(Double price) {
         this.cash += price;
+    }
+
+    public boolean isLastCarOwner(Car car, Human seller) {
+        return car.carOwners.get(car.carOwners.size() - 1).equals(seller);
     }
 }
