@@ -21,7 +21,6 @@ public class Human extends Animal implements Saleable {
     public Animal pet;
     public FarmAnimal farmPet;
     private Double salary;
-    //private Car auto;
     public Double cash;
 
     public Human(String firstName) {
@@ -85,6 +84,10 @@ public class Human extends Animal implements Saleable {
             }
         }
         return valueOfCars;
+    }
+
+    public void sortAllCarsInGarageByYear() {
+        Arrays.sort(this.garage, (b, a) -> a.yearOfProduction.compareTo(b.yearOfProduction));
     }
 
     @Override

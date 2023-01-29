@@ -152,6 +152,7 @@ public class Main {
         mustang.refuel();
         one.setCar(cupra, 0);
         one.setCar(mustang, 2);
+        one.getCar(2);
 
         System.out.println("Wartosc wszystkich aut wynosi:");
         System.out.println(one.getValueOfAllCars() + " zł");
@@ -163,6 +164,32 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Sprzedaz sie nie powiodla");
         }
+        System.out.println();
+
+        Human adam = new Human("Adam");
+        Electric tesla = new Electric("tesla", "3", 2020);
+        tesla.value = 150000.0;
+        Electric polestar = new Electric("polestar", "2", 2018);
+        polestar.value = 180000.0;
+        Electric etron = new Electric("audi", "e-tron", 2022);
+        etron.value = 220000.0;
+        adam.setCar(tesla, 0);
+        adam.setCar(polestar, 1);
+        adam.setCar(etron, 2);
+
+        System.out.println("adam.getCar(2):");
+        adam.getCar(2);
+        System.out.println("adam.getCar(1):");
+        adam.getCar(1);
+        System.out.println("adam.getCar(0):");
+        adam.getCar(0);
+        adam.sortAllCarsInGarageByYear();
+        System.out.println("adam.getCar(2):");
+        adam.getCar(2);
+        System.out.println("adam.getCar(1):");
+        adam.getCar(1);
+        System.out.println("adam.getCar(0):");
+        adam.getCar(0);
         //System.out.println("Wynik 65659 % 3 = " + 65659 % 3);
     }
 }

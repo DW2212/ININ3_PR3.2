@@ -6,7 +6,6 @@ import dawid_w.creatures.Human;
 public abstract class Car extends Device implements Saleable {
 
     public Double millage;
-    public Double value;
     public String color;
 
     public Car(String producer, String model, Integer yearOfProduction) {
@@ -50,7 +49,8 @@ public abstract class Car extends Device implements Saleable {
         return "Car{" +
                 "millage=" + millage +
                 ", value=" + value +
-                ", color='" + color + '\'' +
-                '}';
+                ", color='" + color +
+                ", yearOfProduction=" + yearOfProduction +
+                '\'' + '}';
     }
 }
