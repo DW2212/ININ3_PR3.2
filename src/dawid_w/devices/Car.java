@@ -48,15 +48,6 @@ public abstract class Car extends Device implements Saleable {
         System.out.println("Transakcja zakonczona pomyslnie");
     }
 
-    /*public void hadOwner() {
-        if (carOwners.isEmpty()) {
-            System.out.println("Ten pojazd nie ma wlasciciela");
-        } else {
-            System.out.println("Ten pojazd ma historie wlasicieli:");
-            for (Human people : carOwners)
-                System.out.println(people);
-        }
-    }*/
     public boolean wasOwner(Human person) {
         return carOwners.contains(person);
     }

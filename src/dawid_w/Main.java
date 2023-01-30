@@ -3,10 +3,7 @@ package dawid_w;
 import dawid_w.creatures.FarmAnimal;
 import dawid_w.creatures.Human;
 import dawid_w.creatures.Pet;
-import dawid_w.devices.Diesel;
-import dawid_w.devices.Electric;
-import dawid_w.devices.LPG;
-import dawid_w.devices.Phone;
+import dawid_w.devices.*;
 
 import java.net.MalformedURLException;
 import java.util.ArrayList;
@@ -57,7 +54,7 @@ public class Main {
         System.out.println(kot);
         System.out.println(ford);
         System.out.println(ford2);
-        Phone xiaomi = new Phone("Xiaomi", "13 Pro", 2018);
+        Phone xiaomi = new Phone("Xiaomi", "13 Pro", 2018, 5.0, andrzej);
         xiaomi.mute();
         xiaomi.installAnApp("TrashXXL");
         andrzej.pet = kot;
@@ -159,7 +156,7 @@ public class Main {
 
         Human two = new Human("Tom");
         two.cash = 200000.0;
-        //mustang.carOwners.add(one);
+
         try {
             mustang.sell(one, two, 85000.0);
             System.out.println("Transakcja sie udala");
@@ -201,6 +198,38 @@ public class Main {
         System.out.println("Tesla ilosc transakcji sprzedazy=" + tesla.numberOfCarTransaction());
         System.out.println("Mustang ilosc transakcji sprzedazy=" + mustang.numberOfCarTransaction());
         System.out.println("golf ilosc transakcji sprzedazy=" + golf.numberOfCarTransaction());
+
+        System.out.println("**");
+        Phone galaxy = new Phone("Samsung", "Galaxy s20", 2020, 6.0, adam);
+        adam.cash = 100.0;
+        Application notatnik = new Application("Kalkulator", 1.5, 13.99);
+        Application allplayer = new Application("player", 1.2, 0.0);
+        Application zenit = new Application("zenit", 1.3, 7.21);
+        try {
+            galaxy.installAnApp(notatnik);
+            System.out.println("Instalacja (" + notatnik + ") powiodla sie");
+        } catch (Exception e) {
+            System.out.println(e + ",Instalacja (" + notatnik + ") nie powiodla sie");
+        }
+        try {
+            galaxy.installAnApp(allplayer);
+            System.out.println("Instalacja (" + allplayer + ") powiodla sie");
+        } catch (Exception e) {
+            System.out.println(e + ",Instalacja (" + allplayer + ") nie powiodla sie");
+        }
+        try {
+            galaxy.installAnApp(zenit);
+            System.out.println("Instalacja (" + zenit + ") powiodla sie");
+        } catch (Exception e) {
+            System.out.println(e + ",Instalacja (" + zenit + ") nie powiodla sie");
+        }
+        System.out.println("*");
+        System.out.println("galaxy.alreadyInstalled(notatnik)=" + galaxy.alreadyInstalled(notatnik));
+        System.out.println("galaxy.alreadyInstalled(\"player\")=" + galaxy.alreadyInstalled("player"));
+        galaxy.getAllFreeApps();
+        System.out.println("Wartosc wszystkich aplikacji=" + galaxy.getPriceOfAllApps());
+        galaxy.getAllAppsByName();
+        galaxy.getAllAppsByPriceLowToHigh();
         //System.out.println("Wynik 65659 % 3 = " + 65659 % 3);
     }
 }
